@@ -1,7 +1,7 @@
 function initMap(){
 	var user = {
-		lat: #{response.latitude},
-		lng: #{response.latitude}
+		lat: parseFloat(getParameterByName('latitude')),
+		lng: parseFloat(getParameterByName('longitude'))
 	};
 	var map = new google.maps.Map(document.getElementById('map'), {
 			zoom: 12,
