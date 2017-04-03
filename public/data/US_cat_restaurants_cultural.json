@@ -378,27 +378,6 @@
         ]
     },
     {
-        "alias": "hotpot",
-        "title": "Hot Pot",
-        "parents": [
-            "restaurants",
-            "cultural"
-        ],
-        "country_whitelist": [
-            "MY",
-            "FR",
-            "TW",
-            "JP",
-            "HK",
-            "SE",
-            "US",
-            "CA",
-            "BR",
-            "PH",
-            "SG"
-        ]
-    },
-    {
         "alias": "hungarian",
         "title": "Hungarian",
         "parents": [
