@@ -69,6 +69,8 @@ body{
   transition:0.3s linear;
   background-color:#faa;
   border: 1px solid #eee;
+  cursor:pointer;
+  cursor:hand;
 }
 
 #questions{
@@ -111,11 +113,15 @@ body{
   transition:0.4s linear;
   background-color:#f55;
   border: 1px solid white;
+  cursor:pointer;
+  cursor:hand;
 }
 .question-tab:hover{
 	transition:0.4s linear;
   background-color:#faa;
   border: 1px solid white;
+  cursor:pointer;
+  cursor:hand;
 }
 .question-tab{
 	vertical-align:middle;
