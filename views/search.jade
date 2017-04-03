@@ -27,9 +27,9 @@ html(lang="en")
 			div#page-title
 			div#page-category
 				script.
-					if(['term'] in query)
+					if(['term'] in query && query['term'].length > 0)
 						document.getElementById('page-title').innerHTML = 'Search: ' + query['term'];
-					if(getParameterByName('categories') != '')
+					if(['categories'] in query && query['categories'].length > 0)
 						document.getElementById('page-category').innerHTML = 'Category: ' + query['categories'];
 			div#results
 				for businessitem, index in businesses
