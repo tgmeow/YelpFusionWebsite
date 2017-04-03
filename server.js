@@ -33,7 +33,7 @@ app.get('/locationerror', function(req, res){
 
 //YELP API IMPLEMENTATION
 //Search with query, location
-app.get('/search', urlencodedParser, function (req, res) {
+app.post('/search', urlencodedParser, function (req, res) {
 	//prepare the request in JSON format
 	query = {
 		term: req.query.search_query,
