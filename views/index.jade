@@ -25,7 +25,7 @@ html(lang="en")
 					b.navbar-brand Hungry Hungry!
 		div.jumbotron
 			div.container
-				form#search.navbar-form(method = "GET" action = "http://127.0.0.1:8081/search")
+				form#search.navbar-form(method = "GET" action = "https://hungryhungry.heroku.com/search")
 					div.search-object.form-group
 						label#search-label(for='search-query') !{"Search: "}
 						input#search-query.form-control(type='text' onFocus='clearCategory()' placeholder='What are you looking for?' name='search_query')
