@@ -104,5 +104,5 @@ var yelpHeaders = {
 }
 
 //server config
-http.createServer(app).listen(8080);
-https.createServer(credentials, app).listen(8443);
+http.createServer(app).listen(80);
+https.createServer(credentials, app).listen(443);
