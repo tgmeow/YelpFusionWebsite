@@ -27,10 +27,10 @@ html(lang="en")
 			div#page-title
 			div#page-category
 				script.
-					if(['search_query'] in query)
-						document.getElementById('page-title').innerHTML = 'Search: 'query['search_query'];
-					if(getParameterByName('search_category') != '')
-						document.getElementById('page-category').innerHTML = 'Category: 'query['search_category'];
+					if(['term'] in query)
+						document.getElementById('page-title').innerHTML = 'Search: ' + query['term'];
+					if(getParameterByName('categories') != '')
+						document.getElementById('page-category').innerHTML = 'Category: ' + query['categories'];
 			div#results
 				for businessitem, index in businesses
 					div.item-index

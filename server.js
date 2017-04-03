@@ -31,10 +31,7 @@ app.get('/', function (req, res) {
 //Search with query, location
 app.get('/search', urlencodedParser, function (req, res) {
 	//prepare the request in JSON format
-	query = {
-		term: req.query.search_query,
-		categories: req.query.search_category
-	};
+	query = {};
 	var error = false;
 	if('longitude' in req.query && req.query.longitude.length >0)		query.longitude = req.query.longitude;
 	else{
@@ -46,6 +43,8 @@ app.get('/search', urlencodedParser, function (req, res) {
 		res.redirect('/locationerror');
 		error = true;
 	}
+	if('search_query' in req.query) query.term = req.query.search_query;
+	if('search_category' in req.query) query.categories = req.query.search_category;
 	if('limit' in req.query) query.limit = req.query.limit;
 	if('sort_by' in req.query) query.sort_by = req.query.sort_by;
 	if('open_now' in req.query) query.open_now = req.query.open_now;
