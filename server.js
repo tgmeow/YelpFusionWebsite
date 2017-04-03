@@ -27,10 +27,6 @@ app.get('/', function (req, res) {
 	});
 })
 
-app.get('/locationerror', function(req, res){
-	res.render('locationerror');
-});
-
 //YELP API IMPLEMENTATION
 //Search with query, location
 app.get('/search', urlencodedParser, function (req, res) {
@@ -39,22 +35,30 @@ app.get('/search', urlencodedParser, function (req, res) {
 		term: req.query.search_query,
 		categories: req.query.search_category
 	};
+	var error = false;
 	if('longitude' in req.query && req.query.longitude.length >0)		query.longitude = req.query.longitude;
 	else{
 		res.redirect('/locationerror');
+		error = true;
 	}
 	if('latitude' in req.query && req.query.latitude.length >0) query.latitude = req.query.latitude;
 	else{
 		res.redirect('/locationerror');
+		error = true;
 	}
 	if('limit' in req.query) query.limit = req.query.limit;
 	if('sort_by' in req.query) query.sort_by = req.query.sort_by;
 	if('open_now' in req.query) query.open_now = req.query.open_now;
 	if('radius' in req.query) query.radius = req.query.radius;
-	console.log(req.query.radius);
-	performYelpRequest('/v3/businesses/search', 'GET', query, function (data) {
-		res.render('search', data);
-	});
+	if(!error){
+		performYelpRequest('/v3/businesses/search', 'GET', query, function (data) {
+			if('businesses' in data){
+				data.query = query;
+				res.render('search', data);
+			}
+			else res.render('error');
+		});
+	}
 })
 
 //send the request to yelp API
@@ -86,7 +90,12 @@ function performYelpRequest(endpoint, method, data, success) {
 				responseString += data;
 			});
 			res.on('end', function () {
-				var responseObject = JSON.parse(responseString);
+				var responseObject = {};
+				try{
+					responseObject = JSON.parse(responseString);
+				} catch(err){
+					return console.error(e);
+				}
 				success(responseObject);
 			});
 		});
@@ -99,6 +108,14 @@ var yelpHeaders = {
 	'Content-Type': 'application/x-www-form-urlencoded',
 	'Authorization': 'Bearer yIPR_YhxgA0owa8fm-ZAzOfZNWfQmd74xQdb4RbZE945zPdBMKWZOqyOhR9c9P_nCpcJsqjScDGFuNo3DHKcki4OO55cHKD1biYL_pGp6Vam8DS_9CCYLRrlkBfWWHYx'
 }
+
+app.get('/locationerror', function(req, res){
+	res.render('locationerror');
+});
+
+app.get('*', function(req, res){
+  res.render('error');
+});
 
 //server config
 app.listen(app.get('port'), function() {

@@ -3,7 +3,7 @@ html(lang="en")
 	block head
 		meta(charset="utf-8")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
-		meta(name="viewport" content="width=1000px, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+		meta(name="viewport" content="width=1000, initial-scale=0.5, maximum-scale=1.5")
 		
 		meta(name="description" content="Displays search results in a map (Google Maps API).")
 		meta(name="author" content="Tiger Mou")
@@ -16,6 +16,8 @@ html(lang="en")
 		title Search Results
 		script.
 			var data = !{JSON.stringify(businesses)};
+			var region = !{JSON.stringify(region)};
+			var query = !{JSON.stringify(query)};
 	block content
 		nav.navbar.navbar-inverse.navbar-fixed-top
 			div.navbar-header
@@ -25,10 +27,10 @@ html(lang="en")
 			div#page-title
 			div#page-category
 				script.
-					if(getParameterByName('search_query') != '')
-						document.getElementById('page-title').innerHTML = 'Search: ' + getParameterByName('search_query');
+					if(['search_query'] in query)
+						document.getElementById('page-title').innerHTML = 'Search: 'query['search_query'];
 					if(getParameterByName('search_category') != '')
-						document.getElementById('page-category').innerHTML = 'Category: ' + getParameterByName('search_category');
+						document.getElementById('page-category').innerHTML = 'Category: 'query['search_category'];
 			div#results
 				for businessitem, index in businesses
 					div.item-index
