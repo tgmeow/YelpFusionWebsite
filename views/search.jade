@@ -25,10 +25,8 @@ html(lang="en")
 			div#page-title
 			div#page-category
 				script.
-					if(getParameterByName('search_query') != '')
-						document.getElementById('page-title').innerHTML = 'Search: ' + getParameterByName('search_query');
-					if(getParameterByName('search_category') != '')
-						document.getElementById('page-category').innerHTML = 'Category: ' + getParameterByName('search_category');
+						document.getElementById('page-title').innerHTML = 'Search: ' + #{response.search_query};
+						document.getElementById('page-category').innerHTML = 'Category: ' + #{response.search_category};
 			div#results
 				for businessitem, index in businesses
 					div.item-index
