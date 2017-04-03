@@ -33,38 +33,31 @@ app.get('/locationerror', function(req, res){
 
 //YELP API IMPLEMENTATION
 //Search with query, location
-app.post('/search', urlencodedParser, function (req, res) {
+app.get('/search', urlencodedParser, function (req, res) {
 	//prepare the request in JSON format
 	query = {
-		term: req.body.search_query,
-		categories: req.body.search_category
+		term: req.query.search_query,
+		categories: req.query.search_category
 	};
-	if('location' in req.body && req.body.location.length>0)
-		query.location = req.body.location;
+	if('location' in req.query && req.query.location.length>0)
+		query.location = req.query.location;
 	else{
-		if('longitude' in req.body && req.body.longitude.length >0)		query.longitude = req.body.longitude;
+		if('longitude' in req.query && req.query.longitude.length >0)		query.longitude = req.query.longitude;
 		else{
 			res.redirect('/locationerror');
 		}
-		if('latitude' in req.body && req.body.latitude.length >0) query.latitude = req.body.latitude;
+		if('latitude' in req.query && req.query.latitude.length >0) query.latitude = req.query.latitude;
 		else{
 			res.redirect('/locationerror');
 		}
 	}
-	if('limit' in req.body) query.limit = req.body.limit;
-	if('sort_by' in req.body) query.sort_by = req.body.sort_by;
-	if('open_now' in req.body) query.open_now = req.body.open_now;
-	if('radius' in req.body) query.radius = req.body.radius;
-	console.log(req.body.radius);
-	var response = {
-		data:data,
-		longitude:req.body.longitude,
-		latitude:req.body.latitude,
-		search_query:req.body.search_query,
-		search_category:req.body.search_category
-	}
+	if('limit' in req.query) query.limit = req.query.limit;
+	if('sort_by' in req.query) query.sort_by = req.query.sort_by;
+	if('open_now' in req.query) query.open_now = req.query.open_now;
+	if('radius' in req.query) query.radius = req.query.radius;
+	console.log(req.query.radius);
 	performYelpRequest('/v3/businesses/search', 'GET', query, function (data) {
-		res.render('search', response);
+		res.render('search', data);
 	});
 })
 
