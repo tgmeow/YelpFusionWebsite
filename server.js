@@ -56,7 +56,7 @@ app.post('/search', urlencodedParser, function (req, res) {
 	if('open_now' in req.body) query.open_now = req.body.open_now;
 	if('radius' in req.body) query.radius = req.body.radius;
 	console.log(req.body.radius);
-	var response{
+	var response = {
 		data:data,
 		longitude:req.body.longitude,
 		latitude:req.body.latitude,
