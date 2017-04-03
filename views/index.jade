@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+html(lang="en")
+	block head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		
+		meta(name="description" content="Website to help users find restaurants and such by using Yelp's Fusion APIs.")
+		meta(name="author" content="Tiger Mou")
+		link(rel = 'stylesheet' type='text/css' href = '/css/index.css')
+		title Hungy Hungry! - Index
+		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+		script(type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js')
+		script(type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js')
+		script(src="../../assets/js/ie-emulation-modes-warning.js")
+		link(href="carousel.css" rel="stylesheet")
+		script.
+			cultural = !{JSON.stringify(cultural)};
+			noncultural = !{JSON.stringify(noncultural)};
+	block content
+		nav.navbar.navbar-inverse.navbar-fixed-top
+			div.container
+				div.navbar-header
+					h1.navbar-brand goodbye, cruel world
+		div.jumbotron
+			div.container
+				form#search.navbar-form(method = "GET" action = "http://127.0.0.1:8081/search")
+					div.search-object.form-group
+						label(for='search-query') Search:
+						input#search-query.form-control(type='text' onFocus='clearCategory()' placeholder='What are you looking for?' name='search_query')
+						input#search-category(type='text' placeholder='category' name='search_category' style='display:none')
+						input#longitude(type='text' placeholder='0.00' name='longitude' style='display:none')
+						input#latitude(type='text' placeholder='0.00' name='latitude' style='display:none')
+					div.search-object
+						button.btn.btn-success.form-control(type="submit") Search
+						
+		div.container
+			div#lucky(ng-controller="hungerController")
+				div.lucky-item(ng-click="dismiss()")
+					li.lucky-item
+						b No.
+				div.lucky-item(ng-click="goRandom()")
+					li.lucky-item
+						b FEEED MEE!!!
+		div.container
+			div#questions(ng-controller="myCtrl")
+				div.question-tab(ng-click="showCult=!showCult; animateQuestions()")
+					li#special-item.question-item
+						b Toggle Cultural
+				div.question-container
+					div.animatedQuestions.question-div.cultural(ng-show="showCult" ng-repeat="x in cultural_titles" ng-click="openItem(cultural[$index])")
+						li.question-item {{x}}
+				div.question-container
+					div.animatedQuestions.question-div.noncultural(ng-show="!showCult" ng-repeat="x in noncultural_titles" ng-click="openItem(noncultural[$index])")
+						li.question-item {{x}}
+		script(type='text/javascript' src='/js/indexFunc.js')
+		script(type='text/javascript' src='/js/updateLoc.js')
+		

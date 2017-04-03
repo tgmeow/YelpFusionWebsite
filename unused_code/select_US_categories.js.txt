@@ -1,0 +1,15 @@
+var restaurants = [];
+for(var i = 0; i < categories.length; i++){
+	console.log('parents' in categories[i]);
+	if('parents' in categories[i] && categories[i]['parents'].includes('restaurants')){
+		
+		var add = true;
+		if('country_whitelist' in categories[i] && !(categories[i]['country_whitelist'].includes('US'))){
+			add = false;
+		}
+		if('country_blacklist' in categories[i] && categories[i]['country_blacklist'].includes('US')){
+			add = false;
+		}
+		if(add) restaurants.push(JSON.stringify(categories[i]));
+	}
+}

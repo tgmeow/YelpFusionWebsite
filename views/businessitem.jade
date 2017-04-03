@@ -1,0 +1,14 @@
+.businessitem
+	div.itemcontent
+		div.main-pic
+			a(href=businessitem.url)
+				img.business-img(src=businessitem.image_url.substr(0,businessitem.image_url.length-5)+'ls.jpg', alt=businessitem.name + ' image')
+		div.main-info
+			div.rating #{businessitem.rating} stars
+			div.numreviews #{businessitem.review_count} reviews
+			div.price #{businessitem.price}
+			for item in businessitem.categories
+				span.category -#{item.title}
+		div.secondary-info
+			div.phone #{businessitem.display_phone}
+			address.location #{businessitem.location.address1} <br/> #{businessitem.location.city} #{businessitem.location.state} #{businessitem.location.zip_code}

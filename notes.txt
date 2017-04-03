@@ -1,0 +1,27 @@
+Tiger Mou
+My approach to this project...
+What are Yelp Fusion APIs and what do I
+need to use them
+Figure out how to set up a server
+	Node.js
+	tutorial on how to
+	Figure out server/client interactions
+Oh I need location to do business search
+	Figure out HTML5 Geolocation
+	Use data in form, submit form to server
+	How do I get the form data and send it to Yelp?
+	Oh it returns a JSON thingy.
+		How do I give this to the user and make it presentable?
+		Jade!
+	Since I have a presentable list of things,
+	can I put them on a map with Google APIs?
+		Yes!
+		Markers? Numbers? Yes!
+How do I give the user a better experience in using
+my website?
+	better UI/interactions
+		Bootstrap
+		Angular/React
+	better welcome structure
+		ASK QUESTIONS TO THE USER!
+		SEARCH BASED ON WHAT THEY ANSWER!

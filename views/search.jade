@@ -1,0 +1,27 @@
+block head
+	script(type='text/javascript' src='/js/searchFunc.js')
+	link(rel='stylesheet' type='text/css' href = '/css/search.css')
+	title Search Results
+	script.
+		var data = !{JSON.stringify(businesses)};
+block content
+	div.results-left
+		h2#page-title
+		h2#page-category
+			script.
+				if(getParameterByName('search_query') != '')
+					document.getElementById('page-title').innerHTML = 'Search: ' + getParameterByName('search_query');
+				if(getParameterByName('search_category') != '')
+				document.getElementById('page-category').innerHTML += 'Category: ' + getParameterByName('search_category');
+		div#results
+			for businessitem, index in businesses
+				div.item-index
+					h2
+						a.business-title(href = businessitem.url) #{index + 1} #{businessitem.name}
+					include businessitem
+			else
+				h2 No results!
+	div.map-right
+		div#map
+script(src='/js/initMap.js')
+script(async, defer, src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBVlESdZZxU_YrMrVecHOfIrw-eTdzARhU&callback=initMap')

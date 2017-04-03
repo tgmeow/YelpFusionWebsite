@@ -1,0 +1,68 @@
+body{
+	display:block;
+	overflow:hidden;
+}
+.results-left{
+	height:100%;
+	width:515px;
+	display:inline-block;
+	float:left;
+
+}
+#results{
+	width:500px;
+	height:93%;
+	padding-left:15px;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+h2{
+	padding-right: 10px;
+}
+.businessitem{
+	border-top:1px solid gray;
+}
+.itemcontent{
+	display:flex;
+}
+.main-pic{
+	display:block;
+	padding:10px;
+	width:180px;
+}
+.main-info,.secondary-info{
+	display:flex;
+	flex-direction:column;
+	padding:10px;
+	width:30%;
+}
+
+.business-img{
+	height: 130px;
+	border-radius:20px;
+}
+.business-title{
+	color:black;
+	text-decoration:none;
+}
+.rating, .numreviews, .price, .phone, .location,.category{
+	padding:3px;
+}
+
+address {
+    display: block;
+    font-style: normal;
+}
+
+/*RIGHT SIDE*/
+.map-right{
+	display:inline-block;
+	width:calc(100% - 515px); /*For some reason it does not want to scale to the size of the div*/
+	height:100%;
+	position:fixed;
+	float:right;
+}
+#map{
+	height:inherit;
+}
+

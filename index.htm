@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   		<script type="text/javascript">
+			
+			function geoloc() {
+				if (navigator.geolocation) {
+					var options = {
+						enableHighAccuracy : true,
+						timeout: 5000,
+						maximumAge: 0
+					};
+					navigator.geolocation.getCurrentPosition(updatePosition, console.log("Unable to get location"), options);
+				} else {
+					alert('Geolocation is not supported in your browser');
+				}
+			}
+			window.onload = geoloc();
+			function updatePosition(position){
+			
+				document.getElementById('longitude').value = position.coordinates.longitude;
+				document.getElementById('latitude').value = position.coordinates.latitude;
+				document.getElementById("geolocation").submit();
+			}
+			
+		</script>
+	</head>
+   <body>
+
+      
+      <form action = "http://127.0.0.1:8081/search" method = "POST">
+         Search: <input type = "text" name = "search_query"> <br>
+         <input type = "submit" value = "Submit">
+      </form>
+	  <form id = "geolocation" action="/location" method="POST" >
+           <!-- {% csrf_token %}--->
+        <input type="text" id = "longitude" name="longitude" value="" />
+		<input type="text" id = "latitude" name="latitude" value="" />
+        <input type="submit" />
+
+</form>
+      
+   </body>
+</html>
