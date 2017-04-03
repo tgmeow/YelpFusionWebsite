@@ -1,14 +1,10 @@
 var express = require('express');
-var fs = require('fs');
 var app = express();
 var bodyParser = require('body-parser');
-var querystring = require('querystring');
-const http = require("http");
-var https = require("https");
+const querystring = require('querystring');
+//const http = require("http");
+const https = require("https");
 
-var privateKey = fs.readFileSync('sslcert/server.pem', 'utf8');
-var certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
-var credentials = {key: privateKey, cert: certificate};
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({
 		extended: false
@@ -16,6 +12,7 @@ var urlencodedParser = bodyParser.urlencoded({
 
 app.use(express.static('public'));
 app.set('view engine', 'jade');
+app.set('port', (process.env.PORT || 5000));
 
 //URL RESPONSES
 app.get('/', function (req, res) {
@@ -104,5 +101,6 @@ var yelpHeaders = {
 }
 
 //server config
-http.createServer(app).listen(80);
-https.createServer(credentials, app).listen(443);
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
