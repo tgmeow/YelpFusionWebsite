@@ -21,9 +21,6 @@ body{
 	overflow-x:hidden;
 	overflow-y:auto;
 }
-h2{
-	padding-right: 10px;
-}
 .businessitem{
 	border-top:1px solid gray;
 }
@@ -52,11 +49,6 @@ h2{
 }
 .rating, .numreviews, .price, .phone, .location,.category{
 	padding:3px;
-}
-
-address {
-    display: block;
-    font-style: normal;
 }
 
 /*RIGHT SIDE*/

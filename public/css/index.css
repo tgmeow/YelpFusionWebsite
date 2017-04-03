@@ -43,7 +43,17 @@ body{
 	font-size:22px;
 	padding-top:10px;
 }
-
+#button-submit{
+	  background-color:#f55;
+  border: 1px solid #f55;
+  border-radius:10px;
+  transition:0.4s linear;
+}
+#button-submit:hover{
+	transition:0.4s linear;
+  background-color:#faa;
+  border: 1px solid #222;
+}
 .lucky-item{
 	display:inline-block;
 	width:150px;
@@ -51,7 +61,7 @@ body{
 	margin-bottom:10px;
 	font-size:16px;
 	background-color:#f55;
-	border: 1px solid #eee;
+	border: 1px solid #f55;
 	border-radius:10px;
 	transition:0.3s linear;
 }
@@ -94,7 +104,8 @@ body{
   margin-right:5px;
   margin-bottom:5px;
   background-color:#eee;
-  border: 1px solid white;
+  border: 1px solid #eee;
+  border-radius:10px;
 }
 .question-div:hover{
   transition:0.4s linear;
@@ -112,8 +123,8 @@ body{
   height:50px;
   width:40%;
   background-color:#f55;
-  border: 1px solid white;
-  border-radius:25px;
+  border: 1px solid #f55;
+  border-radius:10px;
   transition:0.4s linear;
 }
 .question-item{
@@ -131,12 +142,8 @@ body{
 .animatedQuestions.question-div.cultural.ng-hide {
 	transition: 0.4s linear;
 	transform: translateX(2500px);
-	transform-origin:left;
-	z-index:1;
 }
 .animatedQuestions.question-div.noncultural.ng-hide {
 	transition: 0.5s linear;
 	transform: translateX(-2500px);
-	transform-origin:left;
-	z-index:1;
 }

@@ -5,7 +5,7 @@ html(lang="en")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		meta(name="viewport" content="width=400, initial-scale=1.0")
 		
-		meta(name="description" content="Website to help users find restaurants and such by using Yelp's Fusion APIs. Requires HTML5 Geolocation.")
+		meta(name="description" content="Find restaurants with a simplified search interface! Uses Yelp's Fusion and Google Maps APIs. Requires HTML5 Geolocation.")
 		meta(name="author" content="Tiger Mou")
 		link(rel="icon" href="/img/favicon.ico")
 		
@@ -31,7 +31,7 @@ html(lang="en")
 						input#search-category(type='text' placeholder='category' name='search_category' style='display:none')
 						input#longitude(type='text' placeholder='0.00' name='longitude' style='display:none')
 						input#latitude(type='text' placeholder='0.00' name='latitude' style='display:none')
-						button.btn.btn-primary.form-control(type="submit") Search
+						button.btn.btn-primary.form-control#button-submit(type="submit") Search
 					div#location-error
 						
 		div.container
@@ -47,14 +47,13 @@ html(lang="en")
 				div.question-header
 					div#question-title Or pick a category. 
 					div.question-tab(ng-click="showCult=!showCult; animateQuestions()")
-						li.question-item
-							b Toggle Cultural
+						div.question-item Toggle Cultural
 				div.question-container
 					div.animatedQuestions.question-div.cultural(ng-show="showCult" ng-repeat="x in cultural_titles" ng-click="openItem(cultural[$index])")
-						li.question-item {{x}}
+						div.question-item {{x}}
 				div.question-container
 					div.animatedQuestions.question-div.noncultural(ng-show="!showCult" ng-repeat="x in noncultural_titles" ng-click="openItem(noncultural[$index])")
-						li.question-item {{x}}
+						div.question-item {{x}}
 		script(type='text/javascript' src='/js/indexFunc.js')
 		script(type='text/javascript' src='/js/updateLoc.js')
 		
