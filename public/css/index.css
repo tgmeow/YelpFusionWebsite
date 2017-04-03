@@ -3,6 +3,11 @@ body{
   padding-top: 50px;
   padding-bottom: 20px;
 }
+#location-error{
+	color:red;
+	font-size:30px;
+	font-weight:bold;
+}
 .search-object{
 	display:inline-block;
 	font-size:32px;
@@ -11,7 +16,7 @@ body{
 #search-label{
 	margin-right:10px;
 }
-#search-query, #location{
+#search-query{
 	min-width:70%;
 	height:32px;
 	margin-right: 10px;

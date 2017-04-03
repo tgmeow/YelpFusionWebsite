@@ -20,4 +20,5 @@ function updatePosition(position){
 
 function error(err) {
   console.warn(`ERROR(${err.code}): ${err.message}`);
+  document.getElementById('location-error').innerHTML = 'ERROR: Could not get HTML5 Geolocation!';
 };

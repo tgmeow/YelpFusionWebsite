@@ -29,11 +29,11 @@ html(lang="en")
 					div.search-object.form-group
 						label#search-label(for='search-query') !{"Search: "}
 						input#search-query.form-control(type='text' onFocus='clearCategory()' placeholder='What are you looking for?' name='search_query')
-						input#location.form-control(type='text' placeholder = 'location (required if html5 location fails)' name = 'location')
 						input#search-category(type='text' placeholder='category' name='search_category' style='display:none')
 						input#longitude(type='text' placeholder='0.00' name='longitude' style='display:none')
 						input#latitude(type='text' placeholder='0.00' name='latitude' style='display:none')
 						button.btn.btn-primary.form-control(type="submit") Search
+					div#location-error
 						
 		div.container
 			div#lucky(ng-controller="hungerController")
