@@ -39,17 +39,13 @@ app.get('/search', urlencodedParser, function (req, res) {
 		term: req.query.search_query,
 		categories: req.query.search_category
 	};
-	if('location' in req.query && req.query.location.length>0)
-		query.location = req.query.location;
+	if('longitude' in req.query && req.query.longitude.length >0)		query.longitude = req.query.longitude;
 	else{
-		if('longitude' in req.query && req.query.longitude.length >0)		query.longitude = req.query.longitude;
-		else{
-			res.redirect('/locationerror');
-		}
-		if('latitude' in req.query && req.query.latitude.length >0) query.latitude = req.query.latitude;
-		else{
-			res.redirect('/locationerror');
-		}
+		res.redirect('/locationerror');
+	}
+	if('latitude' in req.query && req.query.latitude.length >0) query.latitude = req.query.latitude;
+	else{
+		res.redirect('/locationerror');
 	}
 	if('limit' in req.query) query.limit = req.query.limit;
 	if('sort_by' in req.query) query.sort_by = req.query.sort_by;
