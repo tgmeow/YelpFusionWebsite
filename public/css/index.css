@@ -2,11 +2,21 @@ body{
 	text-align:center;
   padding-top: 50px;
   padding-bottom: 20px;
+  background-color:#faf9f7
 }
 #location-error{
 	color:red;
 	font-size:30px;
 	font-weight:bold;
+}
+#banner{
+	background-image:url('/img/food-banner.jpg');
+	height:300px;
+	background-repeat:no-repeat;
+	background-position:center;
+}
+#banner-layer{
+	background-color:rgba(0, 0, 0, 0.5)
 }
 .search-object{
 	display:inline-block;
@@ -14,7 +24,8 @@ body{
 	width:100%;
 }
 #search-label{
-	margin-right:10px;
+	margin-right:20px;
+	color:#fff;
 }
 #search-query{
 	min-width:70%;
@@ -38,15 +49,15 @@ body{
 	margin-right: 10px;
 	margin-bottom:10px;
 	font-size:16px;
-	background-color:#fcc;
+	background-color:#f55;
 	border: 1px solid #eee;
 	border-radius:10px;
 	transition:0.3s linear;
 }
 .lucky-item:hover{
   transition:0.3s linear;
-  background-color:#fff;
-  border: 1px solid #fff;
+  background-color:#faa;
+  border: 1px solid #eee;
 }
 
 #questions{
@@ -84,20 +95,25 @@ body{
   background-color:#eee;
   border: 1px solid white;
 }
-.question-div:hover, .question-tab:hover{
-  transition:0.3s linear;
-  background-color:#fff;
-  border: 1px solid black;
+.question-div:hover{
+  transition:0.4s linear;
+  background-color:#f55;
+  border: 1px solid white;
+}
+.question-tab:hover{
+	transition:0.4s linear;
+  background-color:#faa;
+  border: 1px solid white;
 }
 .question-tab{
 	vertical-align:middle;
 	display:inline-block;
   height:50px;
   width:40%;
-  background-color:#ccf;
+  background-color:#f55;
   border: 1px solid white;
   border-radius:25px;
-  transition:0.3s linear;
+  transition:0.4s linear;
 }
 .question-item{
 	font-size: 16px;
@@ -109,6 +125,7 @@ body{
 	left: 50%;
 	transform: translate(-50%, -50%);
 	padding:10px;
+	font-weight:bold;
 }
 .animatedQuestions.question-div.cultural.ng-hide {
 	transition: 0.4s linear;
