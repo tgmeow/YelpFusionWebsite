@@ -36,26 +36,26 @@ app.get('/locationerror', function(req, res){
 app.post('/search', urlencodedParser, function (req, res) {
 	//prepare the request in JSON format
 	query = {
-		term: req.query.search_query,
-		categories: req.query.search_category
+		term: req.body.search_query,
+		categories: req.body.search_category
 	};
-	if('location' in req.query && req.query.location.length>0)
-		query.location = req.query.location;
+	if('location' in req.body && req.body.location.length>0)
+		query.location = req.body.location;
 	else{
-		if('longitude' in req.query && req.query.longitude.length >0)		query.longitude = req.query.longitude;
+		if('longitude' in req.body && req.body.longitude.length >0)		query.longitude = req.body.longitude;
 		else{
 			res.redirect('/locationerror');
 		}
-		if('latitude' in req.query && req.query.latitude.length >0) query.latitude = req.query.latitude;
+		if('latitude' in req.body && req.body.latitude.length >0) query.latitude = req.body.latitude;
 		else{
 			res.redirect('/locationerror');
 		}
 	}
-	if('limit' in req.query) query.limit = req.query.limit;
-	if('sort_by' in req.query) query.sort_by = req.query.sort_by;
-	if('open_now' in req.query) query.open_now = req.query.open_now;
-	if('radius' in req.query) query.radius = req.query.radius;
-	console.log(req.query.radius);
+	if('limit' in req.body) query.limit = req.body.limit;
+	if('sort_by' in req.body) query.sort_by = req.body.sort_by;
+	if('open_now' in req.body) query.open_now = req.body.open_now;
+	if('radius' in req.body) query.radius = req.body.radius;
+	console.log(req.body.radius);
 	performYelpRequest('/v3/businesses/search', 'GET', query, function (data) {
 		res.render('search', data);
 	});

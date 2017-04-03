@@ -45,7 +45,7 @@ hungryApp.controller("hungerController", function($scope){
 			open_now: true,
 			radius:2000,
 		}
-		post('/search/', parameters, 'GET');
+		post('/search/', parameters, 'POST');
 	}
 });
 
