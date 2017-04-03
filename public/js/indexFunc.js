@@ -27,6 +27,7 @@ function post(path, params, method) {
     document.body.appendChild(form);
     form.submit();
 }
+
 var hungryApp = angular.module("imHungry", []);
 hungryApp.controller("hungerController", function($scope){
 	$scope.hungry = ["No.", "YES I'M HUNGRY!!!"]; //use this for "im feeling lucky" feature

@@ -11,7 +11,7 @@ body{
 #search-label{
 	margin-right:10px;
 }
-#search-query{
+#search-query, #location{
 	min-width:70%;
 	height:32px;
 	margin-right: 10px;
