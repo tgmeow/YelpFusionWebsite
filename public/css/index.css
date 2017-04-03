@@ -17,6 +17,7 @@ body{
 }
 #banner-layer{
 	background-color:rgba(0, 0, 0, 0.5)
+	margin-top:50px;
 }
 .search-object{
 	display:inline-block;
