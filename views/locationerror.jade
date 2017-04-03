@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+html(lang="en")
+	block head
+			meta(charset="utf-8")
+			meta(http-equiv="X-UA-Compatible" content="IE=edge")
+			meta(name="viewport" content="width=device-width, initial-scale=1")
+			
+			meta(name="description" content="Website to help users find restaurants and such by using Yelp's Fusion APIs. Requires HTML5 Geolocation.")
+			meta(name="author" content="Tiger Mou")
+			<link rel="icon" href="/img/favicon.ico">
+			
+			link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+			script(src="/js/ie-emulation-modes-warning.js")
+			link(rel = 'stylesheet' type='text/css' href = '/css/error.css')
+			title There's no food! - Error
+	block content
+		nav.navbar.navbar-inverse.navbar-fixed-top
+			div.container
+				div.navbar-header
+					a(href="127.0.0.1:8081")
+						b.navbar-brand Hungry Hungry!
+		div.container#error-content
+			h1
+				b Where's the food?? :(
+			br
+			h2 Looks like we couldn't find your location.
+			h2 Check that you've allowed this site to access your location and try again!
+			br
+			h2 If you think there is a problem with the website, you can try contacting me at 
+			h2#something
+			script.
+				var username = "tigermou16";
+				var hostname = "gmail DOT com";
+				var linktext = username + " AT  " + hostname ;
+				document.getElementById('something').innerHTML= linktext;

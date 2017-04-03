@@ -24,8 +24,11 @@ app.get('/', function (req, res) {
 		cultural: jsonCult,
 		noncultural:jsonNonCult
 	});
-	//res.sendFile( __dirname + "/" + "index.htm" );
 })
+
+app.get('/locationerror', function(req, res){
+	res.render('locationerror');
+});
 
 //YELP API IMPLEMENTATION
 //Search with query, location
@@ -33,13 +36,23 @@ app.get('/search', urlencodedParser, function (req, res) {
 	//prepare the request in JSON format
 	query = {
 		term: req.query.search_query,
-		categories: req.query.search_category,
-		longitude: req.query.longitude,
-		latitude: req.query.latitude
-
+		categories: req.query.search_category
 	};
+	if('longitude' in req.query && req.query.longitude.length >0)		query.longitude = req.query.longitude;
+	else{
+		res.redirect('/locationerror');
+	}
+	if('latitude' in req.query && req.query.latitude.length >0) query.latitude = req.query.latitude;
+	else{
+		res.redirect('/locationerror');
+	}
+	if('limit' in req.query) query.limit = req.query.limit;
+	if('sort_by' in req.query) query.sort_by = req.query.sort_by;
+	if('open_now' in req.query) query.open_now = req.query.open_now;
+	if('radius' in req.query) query.radius = req.query.radius;
+	console.log(req.query.radius);
 	performYelpRequest('/v3/businesses/search', 'GET', query, function (data) {
-		res.render('search', data); //TODO DO SOMETHING WITH DATA
+		res.render('search', data);
 	});
 })
 

@@ -5,19 +5,61 @@ body{
 }
 .search-object{
 	display:inline-block;
+	font-size:32px;
+	width:100%;
+}
+#search-label{
+	margin-right:10px;
+}
+#search-query{
+	min-width:70%;
+	height:32px;
+	margin-right: 10px;
 }
 
+
 #lucky{
-	margin-bottom:50px;
+	margin-bottom:20px;
+	background-color:#eee;
+}
+#lucky-title{
+	font-size:22px;
+	padding-top:10px;
 }
 
 .lucky-item{
 	display:inline-block;
-	width:200px;
+	width:150px;
+	margin-right: 10px;
+	margin-bottom:10px;
+	font-size:16px;
+	background-color:#fcc;
+	border: 1px solid #eee;
+	border-radius:10px;
+	transition:0.3s linear;
+}
+.lucky-item:hover{
+  transition:0.3s linear;
+  background-color:#fff;
+  border: 1px solid #fff;
 }
 
 #questions{
 	text-align:center;
+}
+.question-header{
+	margin-bottom:24px;
+	text-align:center;
+}
+#question-title{
+	vertical-align:middle;
+	display:inline-block;
+	font-size:28px;
+	font-weight:bold;
+	height:50px;
+	width:40%;
+	margin-right:10%;
+	color:#333;
 }
 .question-container{
 	display:inline-block;
@@ -30,27 +72,27 @@ body{
   transition:0.4s linear;
   display:inline-block;
   width:130px;
-  height:80px;
+  height:60px;
   margin-left:5px;
   margin-right:5px;
-  margin-bottom:10px;
+  margin-bottom:5px;
   background-color:#eee;
   border: 1px solid white;
 }
 .question-div:hover, .question-tab:hover{
-  transition:0.4s linear;
+  transition:0.3s linear;
   background-color:#fff;
   border: 1px solid black;
 }
 .question-tab{
-	display:block;
-	margin-left:auto;
-	margin-right:auto;
+	vertical-align:middle;
+	display:inline-block;
   height:50px;
   width:40%;
-  margin-bottom:10px;
-  background-color:#eef;
+  background-color:#ccf;
   border: 1px solid white;
+  border-radius:25px;
+  transition:0.3s linear;
 }
 .question-item{
 	font-size: 16px;
@@ -65,13 +107,13 @@ body{
 }
 .animatedQuestions.question-div.cultural.ng-hide {
 	transition: 0.4s linear;
-	transform: translateX(2000px);
+	transform: translateX(2500px);
 	transform-origin:left;
 	z-index:1;
 }
 .animatedQuestions.question-div.noncultural.ng-hide {
 	transition: 0.5s linear;
-	transform: translateX(-2000px);
+	transform: translateX(-2500px);
 	transform-origin:left;
 	z-index:1;
 }

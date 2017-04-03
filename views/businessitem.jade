@@ -4,7 +4,9 @@
 			a(href=businessitem.url)
 				img.business-img(src=businessitem.image_url.substr(0,businessitem.image_url.length-5)+'ls.jpg', alt=businessitem.name + ' image')
 		div.main-info
-			div.rating #{businessitem.rating} stars
+			div.rating(style="width:102px", "height:18px")
+				img(src="/img/yelp_stars/regular/regular_#{businessitem.rating}.png")
+				
 			div.numreviews #{businessitem.review_count} reviews
 			div.price #{businessitem.price}
 			for item in businessitem.categories
